@@ -9,8 +9,8 @@ def index(request):
     songs = AddSong.objects.all()
     return render(request,"index.html",{'songs':songs})
 
-def delete(request,uid):
-    AddSong.objects.get(id=uid).delete()
+def delete(request,qk):
+    AddSong.objects.get(id=qk).delete()
     return redirect('/')
 
 def createsong(request):
@@ -30,20 +30,26 @@ def newsong(request):
             return redirect('/')
             
             
-def update(request,qk):
-    obj = AddSong.objects.get(id=qk)
+def update(request,uid):
+    obj = AddSong.objects.get(id=uid)
     return render(request,'update.html',{'obj':obj})
 
 
 def updateview(request):
     if request.method == 'POST':
+        uid = request.POST['uid']
         s_name = request.POST['s_name']
         artist = request.POST['artist']
         detail = request.POST['detail']
         song = request.FILES['song']
-        if AddSong.objects.filter(song=song).exists():
-            return HttpResponse("Song Already Available")
-        else:
-            AddSong.objects.create(s_name=s_name,artist=artist,
-                            detail=detail,song=song)
-            return redirect('/')
+        new_obj = AddSong.objects.get(id=uid)
+        new_obj.s_name = s_name 
+        new_obj.artist = artist 
+        new_obj.detail = detail 
+        if song:
+            new_obj.song = song 
+        new_obj.save()
+        return redirect('/')
+    
+    
+   

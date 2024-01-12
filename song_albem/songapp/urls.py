@@ -6,7 +6,8 @@ urlpatterns = [
     path('',views.index),
     path('createsong/',views.createsong),
     path('newsong/',views.newsong),
-    path('updateview/',views.updateview),
-    path('update/<int:qk>/',views.update),
-    path('delete/<int:uid>/',views.delete,name='delete'),
+    path('update/<int:uid>/',views.update),
+    path('updateview/<int:uid>/',views.updateview,name='updateview'),
+    path('delete/<int:qk>/',views.delete,name='delete'),
+
 ]+static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)

@@ -32,7 +32,9 @@
             <tr >
                 {% for i in songs %}
                 <td>{{i.id}}</td>
-                <td><audio controls src="{{i.song}}" type="audio/ogg"></audio></td>
+                <td><audio controls id="player">
+                    <source src="{{i.song.url}}" type="audio/wav">
+                  </audio></td>
                 <td>{{i.artist}}</td>
                 <td>{{i.detail}}</td>
                 <td>{{i.s_name}}</td>
