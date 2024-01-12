@@ -1,0 +1,39 @@
+<html>
+    <head>
+        <title>Resso music</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://cdn.tailwindcss.com"></script>
+    </head>
+<body>
+    <div class='bg-blue-400 h-16'>
+        <h1 class='float-left m-2 text-5xl text-orange-800'>Resso</h1>
+        <i class='float-left mt-7 text-xl'>music</i>
+        <input type='search' name='search' placeholder='search'  class=' text-center float-left ml-16 mt-7 h-8'><button class='float-left ml-6 mt-7 text-white bg-green-800 border-black-2 p-1 '>new song</button>
+        <div class='flex  ml-64 text-xl'>
+            <div class='ml-64 mt-7'><a href='#'>Home</a></div>
+            <div class='ml-36 mt-7'><a href='#'>Songs</a></div>
+            <div class='ml-36 mt-7'><a href='#'>Favourite Songs</a></div>
+            <div class='ml-36 mt-7'><a href='#'>Account</a></div>
+        </div>
+    </div>
+    <div class='my-24 shadow p-6  border-2 mx-96 leading-loose'>
+        <form action='/newsong/' method='post' class='mt-8' enctype="multipart/form-data">
+            {% csrf_token %}
+            <label for='s_name' class='ml-36  text-xl'>Song Name</label>
+            <input type='text' class='border-2 ml-24 rounded-xl w-64' name='s_name'><br>
+             <br>
+            <label for='detail' class='ml-36 text-xl' >Song Detail</label>
+            <input type='text' class='border-2 ml-24 rounded-xl w-64' name='detail'><br>
+            <br>
+              
+            <label for='artist' class='ml-36 text-xl'>Song Artiest</label>
+            <input type='text' class='border-2 ml-24 rounded-xl w-64' name='artist'><br>
+            <br>
+
+            <label for='song' class='ml-36 text-xl'> Choice Song </label>
+            <input type='file' class='border-2 ml-24 rounded-xl w-64' name='song'><br>
+            <br>
+
+            <button type='submit' class='border-2 ml-64 p-2 mt-4 bg-blue-400 rounded-xl'>Add Song</button>
+        </form>
+    </div>

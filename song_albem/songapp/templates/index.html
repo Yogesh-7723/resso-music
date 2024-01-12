@@ -1,0 +1,48 @@
+<html>
+    <head>
+        <title>Resso music</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://cdn.tailwindcss.com"></script>
+    </head>
+<body>
+    <div class='bg-blue-400 h-16'>
+        <h1 class='float-left m-2 text-5xl text-orange-800'>Resso</h1>
+        <i class='float-left mt-7 text-xl'>music</i>
+        <input type='search' name='search' placeholder='search'  class=' text-center float-left ml-16 mt-7 h-8'><button class='float-left ml-6 mt-7 text-white bg-green-800 border-black-2 p-1 '>new song</button>
+        <div class='flex  ml-64 text-xl'>
+            <div class='ml-64 mt-7'><a href='#'>Home</a></div>
+            <div class='ml-36 mt-7'><a href='#'>Songs</a></div>
+            <div class='ml-36 mt-7'><a href='#'>Favourite Songs</a></div>
+            <div class='ml-36 mt-7'><a href='#'>Account</a></div>
+        </div>
+    </div>
+    
+    <table class=' table-auto mx-16  w-[950px] mt-24 shadow-xl leading-loose '>
+        <form>
+            <tr class='bg-yellow-200 '>
+                <th>S. No.</th>
+                <th class=' text-2xl' colspan='5'>All Favourites Songs list</th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th><a href='createsong'>Add New </a></th>
+                <th></th>
+
+            </tr>
+            <tr >
+                {% for i in songs %}
+                <td>{{i.id}}</td>
+                <td><audio controls src="{{i.song}}" type="audio/ogg"></audio></td>
+                <td>{{i.artist}}</td>
+                <td>{{i.detail}}</td>
+                <td>{{i.s_name}}</td>
+                <!--<td><a href='#'>▶️⏸</a></td>-->
+                <td><a href='/delete/{{i.id}}'>🗑️</a></td>
+                <td><a href='/update/{{i.id}}'>edit</a></td>
+            </tr>
+            {% endfor %}
+        </form>
+    </table>
+
+</body>
+</html>
