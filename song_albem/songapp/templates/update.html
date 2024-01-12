@@ -18,9 +18,9 @@
     </div>
     
     <div class='my-24 shadow p-6  border-2 mx-96 leading-loose'>
-        <form action='/updateview/{{obj.id}}/' method='post' class='mt-8' enctype="multipart/form-data">
+        <form action='/updateview/' method='post' class='mt-8' enctype="multipart/form-data">
             {% csrf_token %}
-            <input type='hidden' name='qk' value="{{obj.id}}">
+            <input type='hidden' name='uid' id='uid' value="{{obj.id}}">
             <label for='s_name' class='ml-36  text-xl'>Song Name</label>
             <input type='text' class='border-2 ml-24 rounded-xl w-64' value="{{obj.s_name}}" name='s_name'><br>
              <br>

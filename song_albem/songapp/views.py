@@ -37,7 +37,7 @@ def update(request,uid):
 
 def updateview(request):
     if request.method == 'POST':
-        uid = request.POST['uid']
+        uid = request.POST.get('uid')
         s_name = request.POST['s_name']
         artist = request.POST['artist']
         detail = request.POST['detail']
