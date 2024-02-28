@@ -1,2 +1,2 @@
 # resso-music
-songs applicaion
+songs application
